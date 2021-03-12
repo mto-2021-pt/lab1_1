@@ -23,7 +23,6 @@ public class OfferItem {
 
     private Money totalCost;
 
-    // discount
     private Discount discount;
 
     public OfferItem(String productId, BigDecimal productPrice, String productName, Date productSnapshotDate,
