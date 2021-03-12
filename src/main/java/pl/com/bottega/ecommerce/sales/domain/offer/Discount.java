@@ -4,9 +4,9 @@ import java.math.BigDecimal;
 
 public class Discount {
     private String cause;
-    private BigDecimal value;
+    private Money value;
 
-    public BigDecimal getValue() {
+    public Money getValue() {
         return value;
     }
 
