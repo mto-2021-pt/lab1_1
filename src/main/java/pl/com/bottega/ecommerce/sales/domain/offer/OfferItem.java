@@ -107,7 +107,7 @@ public class OfferItem {
         } else if (!product.getId().equals(other.product.getId())) {
             return false;
         }
-        if (product.getType() != other.product.getType()) {
+        if (!product.getType().equals(other.product.getType())) {
             return false;
         }
         if (quantity != other.quantity) {
@@ -125,7 +125,7 @@ public class OfferItem {
 
     /**
      *
-     * @param item
+     * @param other
      * @param delta
      *            acceptable percentage difference
      * @return
@@ -152,7 +152,7 @@ public class OfferItem {
         } else if (!product.getId().equals(other.product.getId())) {
             return false;
         }
-        if (product.getType() != other.product.getType()) {
+        if (!product.getType().equals(other.product.getType())) {
             return false;
         }
 
