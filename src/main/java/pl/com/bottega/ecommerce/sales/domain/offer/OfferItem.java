@@ -159,21 +159,18 @@ public class OfferItem {
         if (quantity != other.quantity) {
             return false;
         }
-
-        BigDecimal max;
-        BigDecimal min;
-        BigDecimal totalCostAmount = totalCost.getAmount();
-        BigDecimal otherAmount = other.totalCost.getAmount();
-        if (totalCostAmount.compareTo(otherAmount) > 0) {
-            max = totalCostAmount;
-            min = otherAmount;
+        Money max;
+        Money min;
+        if (totalCost.compareTo(other.totalCost) > 0) {
+            max = totalCost;
+            min = other.totalCost;
         } else {
-            max = otherAmount;
-            min = otherAmount;
+            max = other.totalCost;
+            min = totalCost;
         }
 
-        BigDecimal difference = max.subtract(min);
-        BigDecimal acceptableDelta = max.multiply(BigDecimal.valueOf(delta / 100));
+        Money difference = max.subtract(min);
+        Money acceptableDelta = max.multiply(BigDecimal.valueOf(delta / 100));
 
         return acceptableDelta.compareTo(difference) > 0;
     }
