@@ -43,13 +43,8 @@ public class Offer {
         }
         Offer other = (Offer) obj;
         if (availableItems == null) {
-            if (other.availableItems != null) {
-                return false;
-            }
-        } else if (!availableItems.equals(other.availableItems)) {
-            return false;
-        }
-        return true;
+            return other.availableItems == null;
+        } else return availableItems.equals(other.availableItems);
     }
 
     /**
