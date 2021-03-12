@@ -178,4 +178,8 @@ public class OfferItem {
         return acceptableDelta.compareTo(difference) > 0;
     }
 
+    public Product getProduct(){
+        return product;
+    }
+
 }
