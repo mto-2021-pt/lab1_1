@@ -17,7 +17,7 @@ import java.util.Date;
 
 public class OfferItem {
 
-    Product product;
+    private Product product;
 
     private int quantity;
 
