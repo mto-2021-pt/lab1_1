@@ -22,9 +22,10 @@ public class Offer {
         return unavailableItems;
     }
 
+    //można zmodyfikować konstruktor, albo zrobić nowy konstruktor dostosowany do zmienionego obiektu
     @Override
     public int hashCode() {
-        final int prime = 31;
+        final int prime = 31;//
         int result = 1;
         result = prime * result + (availableItems == null ? 0 : availableItems.hashCode());
         return result;
@@ -53,10 +54,8 @@ public class Offer {
     }
 
     /**
-     *
      * @param seenOffer
-     * @param delta
-     *            acceptable difference in percent
+     * @param delta     acceptable difference in percent
      * @return
      */
     public boolean sameAs(Offer seenOffer, double delta) {
