@@ -43,13 +43,8 @@ public class Offer {
         }
         Offer other = (Offer) obj;
         if (availableItems == null) {
-            if (other.availableItems != null) {
-                return false;
-            }
-        } else if (!availableItems.equals(other.availableItems)) {
-            return false;
-        }
-        return true;
+            return other.availableItems == null;
+        } else return availableItems.equals(other.availableItems);
     }
 
     /**
@@ -65,7 +60,7 @@ public class Offer {
         }
 
         for (OfferItem item : availableItems) {
-            OfferItem sameItem = seenOffer.findItem(item.getProductId());
+            OfferItem sameItem = seenOffer.findItem(item);
             if (sameItem == null) {
                 return false;
             }
@@ -77,9 +72,11 @@ public class Offer {
         return true;
     }
 
-    private OfferItem findItem(String productId) {
-        for (OfferItem item : availableItems) {
-            if (item.getProductId().equals(productId)) {
+    private OfferItem findItem(OfferItem item) {
+        for (OfferItem availableItem : availableItems) {
+            String availableItemId = availableItem.getProduct().getId();
+            String itemId = item.getProduct().getId();
+            if (availableItemId.equals(itemId)) {
                 return item;
             }
         }
